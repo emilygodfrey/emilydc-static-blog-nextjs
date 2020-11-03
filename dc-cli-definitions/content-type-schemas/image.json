@@ -1,5 +1,5 @@
 {
   "body": "../../schemas/image.json",
-  "schemaId": "https://raw.githubusercontent.com/amplience/dc-static-blog-nextjs/master/schemas/image.json",
+  "schemaId": "https://raw.githubusercontent.com/eu-sfcc-presales/dc-static-blog-nextjs/eu-sfcc-presales/schemas/image.json",
   "validationLevel": "CONTENT_TYPE"
 }
