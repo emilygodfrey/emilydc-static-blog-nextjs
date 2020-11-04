@@ -55,6 +55,11 @@ Notes:
 
 - If you do not want to use the CLI, you can create the schemas and register the content types listed above manually in Dynamic Content.
 
+- Some places in the application use hardcoded values. Please be aware that these values will need to be changed when coding the application:
+  - Header title (layouts/default.tsx)
+  - Publisher logo/name in JsonLD (components/microdata/microdata.tsx)
+  - Social links and Copyright information (components/footer/footer.tsx)
+
 ### Creating a Blog content item
 
 Once you have installed and registered (or imported) all of the Schemas and Content Types, the next step is to create a blog content item. This is used to store the title and description for you blog to create the entry point for NextJs to build the blog.
@@ -66,7 +71,7 @@ How to create a blog content item for your blog:
 3. Click "Create content"
 4. Select the "Blog" (or whatever label to assigned to the "blog.json" content type)
 5. Enter a title, heading and search placeholder (these will appear on your blog)
-6. Enter "blog" in the field _meta > Delivery key (you may enter another value if you wish). This value will be used later on to retrieve the blog during the build phase.
+6. Enter "blog" in the field \_meta > Delivery key (you may enter another value if you wish). This value will be used later on to retrieve the blog during the build phase.
 7. Click "Save"
 8. Click "Publish". The blog must be published for it to be available to the Netlify build process later, otherwise the build will fail.
 
@@ -128,9 +133,9 @@ Next we have to customize the webhook payload, as we want change some of the dat
   "deliveryKey": "{{{_meta.deliveryKey}}}",
   "schema": "{{{_meta.schema}}}",
   "authors": [
-    {{~#each authors}}{{#if @index}},{{/if~}}
-      { "name":"{{{name}}}" }
-    {{~/each~}}
+    {{~#forEach authors}}
+      { "name":"{{{name}}}" }{{#unless isLast}},{{/unless~}}
+    {{~/forEach~}}
   ],
   {{#if tags~}}
     "tags": {{{JSONstringify tags}}},
@@ -139,12 +144,11 @@ Next we have to customize the webhook payload, as we want change some of the dat
   "dateAsTimeStamp": {{{moment date format="X"}}},
   "readTime": {{{readTime}}},
   "content": [
-  {{~#each content}}
+  {{~#forEach content}}
     {{~#if text~}}
-      {{~#if @index~}},{{~/if~}}
-      {{{JSONstringify (sanitize (markdown text) ) }}}
+      {{{JSONstringify (sanitize (markdown text) ) }}}{{#unless isLast}},{{/unless~}}
     {{~/if~}}
-  {{~/each~}}
+  {{~/forEach~}}
   ],
   "image": {{{JSONstringify image}}}
 }
@@ -236,9 +240,8 @@ Notes:
 
 Dynamic Content has two ways of allowing you to see you content changes before they go live:
 
-- [Visualisations](https://docs.amplience.net/production/visualizations.html) provide an effective way of previewing your content directly from within Dynamic Content app during the authoring stage.
-
-- [Previewing content](https://docs.amplience.net/planning/previewingcontent.html) is a great way of viewing how your entire blog site will look at a particular point in time, during the planning stage, before it is published.
+- [Visualizations](https://docs.amplience.net/production/visualizations.html) provide an effective way of viewing a single content item directly from within Dynamic Content app during the authoring stage.
+- [Previewing content](https://docs.amplience.net/planning/previewingcontent.html) is a great way of viewing how your entire blog site will look, showing the latest saved content before it is published.
 
 ### How to Configure Visualizations
 
@@ -246,12 +249,15 @@ For each of the Content Type Schemas that support visualization (see table in [C
 
 If you used the dc-cli tool to register your content types, they will already have visualizations added, so you just need to update each URI with the correct domain. You can do this by updating the CLI definitions in /dc-cli-definitions and running the `npm run sync` command again, or by manually updating your content types in Dynamic Content.
 
-### How to configure Preview (optional)
+### How to configure or open Preview
 
-Navigate to Hub settings > "Preview" in Dynamic Content. The Preview application URL should be the domain with the path of `/preview/?vse={{vse.domain}}`, e.g.: `https://blog.example.com/preview/?vse={{vse.domain}}`.
+To enable opening the application via the 'Preview' button in the Dynamic Content app's Planning section:
 
-Notes:
-
+- Go to Hub settings > "Preview" in Dynamic Content. The Preview application URL should be the domain with the path of `/?vse={{vse.domain}}`, e.g.: `https://blog.example.com/?vse={{vse.domain}}`.
+  To open the preview application directly in your browser:
+- Go to Hub settings > "Preview" in Dynamic Content. Copy the Default preview staging environment domain. THis is your VSE domain.
+- In your browser, go to your blog domain with with the preview domain passed in to the URL parameter `/?vse=`, e.g. `https://blog.example.com/?vse=example.staging.bigcontent.io`
+  Notes:
 - Since blog posts are published on demand, not through an edition, the purpose of the preview application is to display the blog with the latest staged content (current saved versions), no time-based preview will be possible. Therefore it is not required to configure it in Dynamic Content.
 
 # Creating your first blog post

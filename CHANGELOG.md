@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/amplience/dc-static-blog-nextjs/compare/v2.0.1...v2.1.0) (2020-11-03)
+
+
+### Features
+
+* **click analytics:** adding algolia click tracking to blog list links ([#88](https://github.com/amplience/dc-static-blog-nextjs/issues/88)) ([4f4044c](https://github.com/amplience/dc-static-blog-nextjs/commit/4f4044cc2f0d1475b13880a0c31c90afe89d9fe8))
+* **content:** removing lazy loading for blog post text content ([#84](https://github.com/amplience/dc-static-blog-nextjs/issues/84)) ([8d6236d](https://github.com/amplience/dc-static-blog-nextjs/commit/8d6236de17feb60b8a85d96c356346162ede28cf))
+* **header:** switch to single h1 per page ([#83](https://github.com/amplience/dc-static-blog-nextjs/issues/83)) ([2718934](https://github.com/amplience/dc-static-blog-nextjs/commit/2718934b5a8992ced8c4c0497e4dbf6b91f946be))
+* **index page:** updated pagingated pages to include a page number for titles and descriptions ([#86](https://github.com/amplience/dc-static-blog-nextjs/issues/86)) ([a5f1758](https://github.com/amplience/dc-static-blog-nextjs/commit/a5f1758f658318d1f90ae8fa40892248c2b7f716))
+* **sitemap:** generating sitemap.xml on export ([#85](https://github.com/amplience/dc-static-blog-nextjs/issues/85)) ([58f41df](https://github.com/amplience/dc-static-blog-nextjs/commit/58f41dfa19378982b707d12dadd1189fe9bbfb24))
+
+
+### Bug Fixes
+
+* **manifest json:** changed the link location for the manifest file ([#87](https://github.com/amplience/dc-static-blog-nextjs/issues/87)) ([fd6d90c](https://github.com/amplience/dc-static-blog-nextjs/commit/fd6d90cea6910cb55151ec832f049ace2027b11a))
+* **microdata:** updated to use article type and added extra required information ([#91](https://github.com/amplience/dc-static-blog-nextjs/issues/91)) ([b99f500](https://github.com/amplience/dc-static-blog-nextjs/commit/b99f500e8f3be1cdefa110afaebdbe9dacb8042c))
+* **share post:** removing linkedin placeholder script from helmet ([#89](https://github.com/amplience/dc-static-blog-nextjs/issues/89)) ([ff165bd](https://github.com/amplience/dc-static-blog-nextjs/commit/ff165bd6e7ef80eafe11e6f423ec7809f3bafb41))
+* **track click:** setting track click component to display flex ([#90](https://github.com/amplience/dc-static-blog-nextjs/issues/90)) ([d056e72](https://github.com/amplience/dc-static-blog-nextjs/commit/d056e725bcd9e8e31db2c7885a61a429e1962d11))
+
+### [2.0.1](https://github.com/amplience/dc-static-blog-nextjs/compare/v2.0.0...v2.0.1) (2020-10-19)
+
+
+### Bug Fixes
+
+* **blog card links:** updated so that deliveryKey is not lowercase and added tests ([#81](https://github.com/amplience/dc-static-blog-nextjs/issues/81)) ([a8926db](https://github.com/amplience/dc-static-blog-nextjs/commit/a8926db59b09b7cac4f53795bfdb3072b83c1ed5))
+* author and tags to display 25 items ([#76](https://github.com/amplience/dc-static-blog-nextjs/issues/76)) ([78823c3](https://github.com/amplience/dc-static-blog-nextjs/commit/78823c37effa5ba60c03a0ef7753d735238eb0b9))
+* header link when previewing via a vse ([#77](https://github.com/amplience/dc-static-blog-nextjs/issues/77)) ([5550703](https://github.com/amplience/dc-static-blog-nextjs/commit/5550703284d7b74910e3ae54514be7d2e1cb1283))
+* removed the duplicate and corrected the remaining viewport meta header ([#78](https://github.com/amplience/dc-static-blog-nextjs/issues/78)) ([8d2c1df](https://github.com/amplience/dc-static-blog-nextjs/commit/8d2c1df4bee93423020a7483aa85398d499f41a7))
+* **share buttons:** wrapped in a helmet component to display the vanilla js ([#79](https://github.com/amplience/dc-static-blog-nextjs/issues/79)) ([c011cef](https://github.com/amplience/dc-static-blog-nextjs/commit/c011cef896ecf0fd2610871b1638a59b3f989286))
+
 ## [2.0.0](https://github.com/amplience/dc-static-blog-nextjs/compare/v1.2.0...v2.0.0) (2020-07-22)
 
 
