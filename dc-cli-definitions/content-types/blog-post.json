@@ -12,7 +12,7 @@
     "visualizations": [
       {
         "label": "Visualisation",
-        "templatedUri": "https://blog.example.com/visualization.html?vse={{vse.domain}}&content={{content.sys.id}}",
+        "templatedUri": "https://emilydc.netlify.com/visualization.html?vse={{vse.domain}}&content={{content.sys.id}}",
         "default": true
       }
     ],
@@ -22,5 +22,5 @@
       }
     ]
   },
-  "repositories": ["content"]
+  "repositories": ["staticblogcontentsite"]
 }
